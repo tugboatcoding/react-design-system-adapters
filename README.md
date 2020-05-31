@@ -38,7 +38,7 @@ npm run storybook
 
 ## How it works
 
-`react-design-system-adapters` offers functions (i.e. adapters) that transform your data (input) to props that React design systems can understand (output).
+`react-design-system-adapters` offers functions (i.e. **adapters**) that transform your data (**input**) to props that React design systems can understand (**output**).
 
 An example:
 
