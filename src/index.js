@@ -5,4 +5,4 @@
  * @see README.md, for more info on the standard set of props.
  */
 
-export { default as mapToEvergreenProps } from './components/evergreen-ui';
+export { mapToEvergreenProps, EvergreenComponent } from './components/evergreen-ui';

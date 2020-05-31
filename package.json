@@ -23,6 +23,9 @@
     "url": "https://github.com/tugboatcoding/react-design-systems-adapter/issues"
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
+  "peerDependencies": {
+    "evergreen-ui": ">= 4"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@storybook/addon-actions": "^5.3.19",

@@ -38,6 +38,8 @@ npm run storybook
 
 ## How it works
 
+### Props adapters
+
 `react-design-system-adapters` offers functions (i.e. **adapters**) that transform your data (**input**) to props that React design systems can understand (**output**).
 
 An example:
@@ -55,7 +57,7 @@ const MyComponent = () => {
 };
 ```
 
-### Input
+#### Input
 
 Adapters are pure JavaScript functions. Each function will take an **input** (JSON of a certain shape/schema) and transform it to props for the target design system. The schema is:
 
@@ -88,7 +90,7 @@ For example, for a link component (layout primitive):
 }
 ```
 
-### Output
+#### Output
 
 The **output** from the adapter is a JavaScript object that can be passed directly to the target design system component. For example, to adapt your data to [Evergreen](https://evergreen.segment.com/components)'s `Link`:
 
@@ -101,6 +103,23 @@ const MyComponent = () => {
   const output = mapToEvergreenProps(input);
   return (
     <Link {...output}>Link 400</Link>
+  );
+};
+```
+
+### Component adapters
+
+`react-design-system-adapters` also offers convenience components that will take the output of props adapters and render the appropriate component. For example:
+
+```jsx
+import { mapToEvergreenProps, EvergreenComponent } from 'react-design-system-adapters';
+
+const MyComponent = () => {
+  const input = { type: 'link2', props: { href: 'https://github.com', children: 'Link 400' } };
+  const output = mapToEvergreenProps(input);
+  return (
+    // Renders "Link 400".
+    <EvergreenComponent {...output} />
   );
 };
 ```

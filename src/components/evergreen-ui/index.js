@@ -78,7 +78,20 @@
  *
  * @see https://evergreen.segment.com/components
  */
-
+import React from 'react';
+import {
+  Code,
+  Heading,
+  Link,
+  Pane,
+  Text,
+  OrderedList,
+  UnorderedList,
+  ListItem,
+  Small,
+  Strong,
+  Checkbox,
+} from 'evergreen-ui';
 
 const mapToSize = (type) => {
   switch(type) {
@@ -220,6 +233,7 @@ const mapToProps = (type, props = {}) => {
     case 'h8':
     case 'h9':
       return {
+        _type: type,
         size: mapToSize(type),
         children: props.children,
       };
@@ -230,6 +244,7 @@ const mapToProps = (type, props = {}) => {
     case 'bold2':
     case 'bold3':
       return {
+        _type: type,
         color: mapToTextColor(props),
         size: mapToSize(type),
         children: props.children,
@@ -238,6 +253,7 @@ const mapToProps = (type, props = {}) => {
     case 'link2':
     case 'link3':
       return {
+        _type: type,
         href: props.href,
         color: mapToLinkColor(props),
         size: mapToSize(type),
@@ -247,6 +263,7 @@ const mapToProps = (type, props = {}) => {
     case 'code2':
     case 'code3':
       return {
+        _type: type,
         appearance: props.appearance,
         size: mapToSize(type),
         children: props.children,
@@ -254,6 +271,7 @@ const mapToProps = (type, props = {}) => {
     case 'box':
     case 'flex':
       return {
+        _type: type,
         ...mapToFlexProps(props),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
@@ -261,17 +279,86 @@ const mapToProps = (type, props = {}) => {
       };
     case 'todoListItem':
       return {
+        _type: type,
         disabled: true,
         checked: props.checked,
         label: props.children,
       };
     default:
-      return props;
+      return {
+        _type: type,
+        ...props
+      };
   }
 };
 
-const mapToEvergreenProps = ({ type, props }) => {
+export const mapToEvergreenProps = ({ type, props }) => {
   return mapToProps(type, props);
 };
 
-export default mapToEvergreenProps;
+export const EvergreenComponent = ({ _type, ...props }) => {
+  // Recursively apply Evergreen to children.
+  const newProps = {
+    ...props,
+    children: Array.isArray(props.children)
+      ? props.children.map((child, idx) => (
+        <EvergreenComponent key={idx} {...child} />
+      ))
+      : props.children,
+  };
+
+  return (
+    <>
+      {_type === 'h1' && <Heading {...newProps} />}
+      {_type === 'h2' && <Heading {...newProps} />}
+      {_type === 'h3' && <Heading {...newProps} />}
+      {_type === 'h4' && <Heading {...newProps} />}
+      {_type === 'h5' && <Heading {...newProps} />}
+      {_type === 'h6' && <Heading {...newProps} />}
+      {_type === 'h7' && <Heading {...newProps} />}
+      {_type === 'h8' && <Heading {...newProps} />}
+      {_type === 'h9' && <Heading {...newProps} />}
+      {_type === 'text1' && <Text {...newProps} />}
+      {_type === 'text2' && <Text {...newProps} />}
+      {_type === 'text3' && <Text {...newProps} />}
+      {_type === 'caption' && <Small {...newProps} />}
+      {_type === 'bold1' && <Strong {...newProps} />}
+      {_type === 'bold2' && <Strong {...newProps} />}
+      {_type === 'bold3' && <Strong {...newProps} />}
+      {_type === 'callback' && <Text {...newProps} />}
+      {_type === 'quote' && <Text {...newProps} />}
+      {_type === 'code' && <Code {...newProps} />}
+      {_type === 'todoList' && <Pane {...newProps} />}
+      {_type === 'toggle' && <Text {...newProps} />}
+      {_type === 'link1' && <Link {...newProps} />}
+      {_type === 'link2' && <Link {...newProps} />}
+      {_type === 'link3' && <Link {...newProps} />}
+      {_type === 'image' && <img {...newProps} />}
+      {_type === 'box' && (
+        <Pane {...newProps} />
+      )}
+      {_type === 'flex' && (
+        <Pane {...newProps} />
+      )}
+      {_type === 'columnList' && (
+        <Pane display="flex" {...newProps} />
+      )}
+      {_type === 'column' && (
+        <Pane {...newProps} />
+      )}
+      {_type === 'orderedList' && (
+        <OrderedList {...newProps} />
+      )}
+      {_type === 'unorderedList' && (
+        <UnorderedList {...newProps} />
+      )}
+      {_type === 'listItem' && (
+        <ListItem {...newProps} />
+      )}
+      {_type === 'todoListItem' && (
+        <Checkbox {...newProps} />
+      )}
+    </>
+  );
+};
+
