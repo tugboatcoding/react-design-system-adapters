@@ -254,6 +254,12 @@ const mapToProps = (type, props = {}) => {
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
       };
+    case 'todoListItem':
+      return {
+        disabled: true,
+        checked: props.checked,
+        label: props.children,
+      };
     default:
       return {};
   }
