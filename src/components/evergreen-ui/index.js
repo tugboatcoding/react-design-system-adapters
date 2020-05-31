@@ -325,7 +325,7 @@ export const EvergreenComponent = ({ _type, ...props }) => {
       {_type === 'bold1' && <Strong {...newProps} />}
       {_type === 'bold2' && <Strong {...newProps} />}
       {_type === 'bold3' && <Strong {...newProps} />}
-      {_type === 'callback' && <Text {...newProps} />}
+      {_type === 'callout' && <Text {...newProps} />}
       {_type === 'quote' && <Text {...newProps} />}
       {_type === 'code' && <Code {...newProps} />}
       {_type === 'todoList' && <Pane {...newProps} />}
