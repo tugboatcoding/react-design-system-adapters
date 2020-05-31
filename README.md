@@ -34,6 +34,8 @@ To view examples, open Storybook:
 npm run storybook
 ```
 
+![Storybook](https://raw.githubusercontent.com/tugboatcoding/react-design-system-adapters/master/screenshots/storybook.png)
+
 ## How it works
 
 `react-design-system-adapters` offers functions (i.e. adapters) that transform your data (input) to props that React design systems can understand (output).
