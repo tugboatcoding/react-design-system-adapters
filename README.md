@@ -1,12 +1,12 @@
 # react-design-system-adapters
 
-Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)). Adapters (pure JavaScript functions) transform a "standard" JSON to props that React design systems understand.
+Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)). Adapters are pure JavaScript functions that transform JSON to props that React design systems understand.
 
 ## Why
 
-The adapters in this repo serve a specific use case. When you want to dynamically choose a design system, you can use `react-design-system-adapters`. It will convert your data into props that the target design system can understand (e.g. [Evergreen](https://evergreen.segment.com/components)).
+The adapters in this repo serve a specific use case. When you have data to present with a certain design system, you can use `react-design-system-adapters`. It will convert your data into props that the target design system can understand.
 
-More generally however, it makes the UI more declarative. By expressing your UI as data (i.e. JSON), you get all the benefits of declarative programming (understandable code, scalable, immutability, etc.). When the UI is defined in this way, adapters will be needed and that is what this repo provides.
+More generally however, it makes the UI more declarative. By expressing your UI as data (i.e. JSON), you get all the benefits of declarative programming (understandable code, scalable, immutability, etc). When the UI is defined in this way, adapters are naturally needed and that is the purpose of this repo.
 
 ## Supported design systems
 
@@ -57,52 +57,47 @@ const MyComponent = () => {
 
 ### Input
 
-The adapters are JavaScript functions. Each function will take an input ("standard" JSON) and transform it to props for the target design system. The schema is:
+Adapters are pure JavaScript functions. Each function will take an **input** (JSON of a certain shape/schema) and transform it to props for the target design system. The schema is:
 
 ```jsx
+/**
+ * Supported `<TYPE>`s include:
+ *    h1, h2, h3, h4, h5, h6, h7, h8, h9,
+ *    text1, text2, text3,
+ *    bold1, bold2, bold3,
+ *    link1, link2, link3,
+ *    code1, code2, code3,
+ *    box, flex, todoListItem.
+ */
 {
   type: '<TYPE>',
   props: {
     // Props specific to the <TYPE>.
-  }
+  },
 }
 ```
 
-Supported `<TYPE>`s include:
-* `h1`
-* `h2`
-* `h3`
-* `h4`
-* `h5`
-* `h6`
-* `h7`
-* `h8`
-* `h9`
-* `text1`
-* `text2`
-* `text3`
-* `bold1`
-* `bold2`
-* `bold3`
-* `link1`
-* `link2`
-* `link3`
-* `code1`
-* `code2`
-* `code3`
-* `box`
-* `flex`
+For example, for a link component (layout primitive):
+
+```jsx
+{
+  type: 'link2',
+  props: {
+    href: 'https://github.com',
+  },
+}
+```
 
 ### Output
 
-The output from the adapter is a JavaScript object that can be passed directly to the target design system components. For example, to adapt your data to Evergreen's `Link`:
+The **output** from the adapter is a JavaScript object that can be passed directly to the target design system component. For example, to adapt your data to [Evergreen](https://evergreen.segment.com/components)'s `Link`:
 
 ```jsx
 import { Link } from 'evergreen-ui';
 import { mapToEvergreenProps } from 'react-design-system-adapters';
 
 const MyComponent = () => {
-  const input = { type: 'link2' };
+  const input = { type: 'link2', props: { href: 'https://github.com' } };
   const output = mapToEvergreenProps(input);
   return (
     <Link {...output}>Link 400</Link>

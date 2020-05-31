@@ -1,10 +1,25 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Code, Heading, Link, Pane, Text } from 'evergreen-ui';
+import { Code, Heading, Link, Pane, Text, OrderedList, ListItem } from 'evergreen-ui';
 import mapToProps from './index';
 
 storiesOf('Evergreen', module)
-  .add('Typography', () => (
+  .add('Typography', () => {
+    const orderedList = {
+      type: 'orderedList',
+      props: {
+        children:  [{
+          type: 'listItem',
+          props: mapToProps({
+            type: 'listItem',
+            props: {
+              children: 'Item',
+            }
+          }),
+        }],
+      },
+    };
+    return (
     <>
       <Pane {...mapToProps({ type: 'box', props: { mt: 16 } })}>
         <Heading {...mapToProps({ type: 'h1' })}>Heading 900</Heading>
@@ -60,5 +75,13 @@ storiesOf('Evergreen', module)
       <Pane {...mapToProps({ type: 'box', props: { mt: 16 } })}>
         <Code {...mapToProps({ type: 'code3' })}>Code 300</Code>
       </Pane>
+      <Pane {...mapToProps({ type: 'box', props: { mt: 16 } })}>
+        <OrderedList {...orderedList}>
+          {orderedList.props.children.map((child, idx) => (
+            <ListItem key={idx} {...child.props} />
+          ))}
+        </OrderedList>
+      </Pane>
     </>
-  ));
+  );
+});
