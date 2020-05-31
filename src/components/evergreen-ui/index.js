@@ -221,6 +221,7 @@ const mapToProps = (type, props = {}) => {
     case 'h9':
       return {
         size: mapToSize(type),
+        children: props.children,
       };
     case 'text1':
     case 'text2':
@@ -231,6 +232,7 @@ const mapToProps = (type, props = {}) => {
       return {
         color: mapToTextColor(props),
         size: mapToSize(type),
+        children: props.children,
       };
     case 'link1':
     case 'link2':
@@ -239,6 +241,7 @@ const mapToProps = (type, props = {}) => {
         href: props.href,
         color: mapToLinkColor(props),
         size: mapToSize(type),
+        children: props.children,
       };
     case 'code1':
     case 'code2':
@@ -246,6 +249,7 @@ const mapToProps = (type, props = {}) => {
       return {
         appearance: props.appearance,
         size: mapToSize(type),
+        children: props.children,
       };
     case 'box':
     case 'flex':
@@ -253,6 +257,7 @@ const mapToProps = (type, props = {}) => {
         ...mapToFlexProps(props),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
+        children: props.children,
       };
     case 'todoListItem':
       return {
@@ -261,7 +266,9 @@ const mapToProps = (type, props = {}) => {
         label: props.children,
       };
     default:
-      return {};
+      return {
+        children: props.children,
+      };
   }
 };
 
