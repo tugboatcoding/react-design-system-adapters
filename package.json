@@ -1,0 +1,24 @@
+{
+  "name": "react-design-systems-adapter",
+  "version": "0.0.1",
+  "description": "Pick a design system. Get React components themed with the design system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tugboatcoding/react-design-systems-adapter.git"
+  },
+  "keywords": [
+    "react",
+    "design",
+    "systems"
+  ],
+  "author": "Tugboat Coding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tugboatcoding/react-design-systems-adapter/issues"
+  },
+  "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme"
+}
