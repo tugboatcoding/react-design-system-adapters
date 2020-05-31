@@ -1,6 +1,6 @@
 # react-design-system-adapters
 
-Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)). Adapters (JavaScript functions) transform a "standard" JSON to props that React design systems understand.
+Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)). Adapters (pure JavaScript functions) transform a "standard" JSON to props that React design systems understand.
 
 ## Why
 
@@ -57,7 +57,7 @@ const MyComponent = () => {
 
 ### Input
 
-The adapters are JavaScript functions. Each function will take an input of a standard shape and transform it to props for the target design system. The schema is:
+The adapters are JavaScript functions. Each function will take an input ("standard" JSON) and transform it to props for the target design system. The schema is:
 
 ```jsx
 {
