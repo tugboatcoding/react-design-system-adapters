@@ -266,9 +266,7 @@ const mapToProps = (type, props = {}) => {
         label: props.children,
       };
     default:
-      return {
-        children: props.children,
-      };
+      return props;
   }
 };
 
