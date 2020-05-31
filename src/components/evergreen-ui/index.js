@@ -236,6 +236,7 @@ const mapToProps = (type, props = {}) => {
     case 'link2':
     case 'link3':
       return {
+        href: props.href,
         color: mapToLinkColor(props),
         size: mapToSize(type),
       };
