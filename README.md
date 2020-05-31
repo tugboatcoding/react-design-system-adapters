@@ -19,7 +19,7 @@ Design systems for which currently there are adapters:
 Currently, this repo is only available via a git install.
 
 ```bash
-npm i -S git+https://github.com/tugboatcoding/react-design-systems-adapter.git
+npm i -S git+https://github.com/tugboatcoding/react-design-system-adapters.git
 ```
 
 To import:
