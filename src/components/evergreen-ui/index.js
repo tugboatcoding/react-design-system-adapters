@@ -325,15 +325,15 @@ export const mapToEvergreenProps = ({ type, props, recursive = false }) => {
   }
 };
 
-export const EvergreenComponent = ({ _type, ...props }) => {
+export const EvergreenComponent = ({ _type, renderer = (v) => v, ...props }) => {
   // Recursively apply Evergreen to children.
   const newProps = {
     ...props,
     children: Array.isArray(props.children)
       ? props.children.map((child, idx) => (
-        <EvergreenComponent key={idx} {...child} />
+        <EvergreenComponent key={idx} renderer={renderer} {...child} />
       ))
-      : props.children,
+      : (Array.isArray(props.children) ? props.children.map(renderer) : renderer(props.children)),
   };
 
   return (
