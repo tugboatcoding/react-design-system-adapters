@@ -92,6 +92,7 @@ import {
   Strong,
   Checkbox,
 } from 'evergreen-ui';
+import { omitNil } from '../../lib/object';
 
 const mapToSize = (type) => {
   switch(type) {
@@ -223,6 +224,8 @@ const mapToMarginProps = (props) => {
  * @param {Object} props Props of standard schema.
  */
 const mapToProps = (type, props = {}) => {
+  let result = {}
+
   switch(type) {
     case 'h1':
     case 'h2':
@@ -233,64 +236,72 @@ const mapToProps = (type, props = {}) => {
     case 'h7':
     case 'h8':
     case 'h9':
-      return {
+      result = {
         _type: type,
         size: mapToSize(type),
         children: props.children,
       };
+      break;
     case 'text1':
     case 'text2':
     case 'text3':
     case 'bold1':
     case 'bold2':
     case 'bold3':
-      return {
+      result = {
         _type: type,
         color: mapToTextColor(props),
         size: mapToSize(type),
         children: props.children,
       };
+      break;
     case 'link1':
     case 'link2':
     case 'link3':
-      return {
+      result = {
         _type: type,
         href: props.href,
         color: mapToLinkColor(props),
         size: mapToSize(type),
         children: props.children,
       };
+      break;
     case 'code1':
     case 'code2':
     case 'code3':
-      return {
+      result = {
         _type: type,
         appearance: props.appearance,
         size: mapToSize(type),
         children: props.children,
       };
+      break;
     case 'box':
     case 'flex':
-      return {
+      result = {
         _type: type,
         ...(type === 'box' ? {} : mapToFlexProps(props)),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
+        minHeight: props.minHeight,
         children: props.children,
       };
+      break;
     case 'todoListItem':
-      return {
+      result = {
         _type: type,
         disabled: true,
         checked: props.checked,
         label: props.children,
       };
+      break;
     default:
-      return {
+      result = {
         _type: type,
         ...props
       };
   }
+  return omitNil(result);
 };
 
 /**
