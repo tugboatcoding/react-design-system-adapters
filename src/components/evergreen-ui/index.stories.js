@@ -100,4 +100,43 @@ storiesOf('Evergreen', module)
         </Pane>
       </>
     );
+  }).add('Typography (w/ recursively mapped props)', () => {
+    return (
+      <>
+        <EvergreenComponent
+          {...mapToProps({
+            recursive: true,
+            type: 'box',
+            props: {
+              children: [
+                {
+                  type: 'box',
+                  props: {
+                    mt: 16,
+                    children: [
+                      {
+                        type: 'h1',
+                        props: { children: 'Heading 900' },
+                      },
+                    ],
+                  },
+                },
+                {
+                  type: 'box',
+                  props: {
+                    mt: 16,
+                    children: [
+                      {
+                        type: 'link1',
+                        props: { href: 'https://github.com', children: 'Link 500' },
+                      },
+                    ],
+                  },
+                },
+              ]
+            }
+          })}
+        />
+      </>
+    );
   });

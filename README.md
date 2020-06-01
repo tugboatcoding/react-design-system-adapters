@@ -1,12 +1,62 @@
 # react-design-system-adapters
 
-Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)). Adapters are pure JavaScript functions that transform JSON to props that React design systems understand.
+Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)) that transform JSON to props that React design systems understand.
 
 ## Why
 
-The adapters in this repo serve a specific use case. When you have data to present with a certain design system, you can use `react-design-system-adapters`. It will convert your data into props that the target design system can understand.
+The adapters in this repo serve a specific use case. When you have data to display with a certain design system, you can use `react-design-system-adapters`. It will convert your data into props that the target design system can understand.
 
 More generally however, it makes the UI more declarative. By expressing your UI as data (i.e. JSON), you get all the benefits of declarative programming (understandable code, scalable, immutability, etc). When the UI is defined in this way, adapters are naturally needed and that is the purpose of this repo.
+
+This example demonstrates how you can use the Evergreen adapter to use Evergreen design system components:
+
+```
+import {
+  mapToEvergreenProps as mapToProps,
+  EvergreenComponent
+} from 'react-design-system-adapters';
+
+// UI expressed as JSON.
+const ui = {
+  recursive: true,
+  type: 'box',
+  props: {
+    children: [
+      {
+        type: 'box',
+        props: {
+          mt: 16,
+          children: [
+            {
+              type: 'h1',
+              props: { children: 'Heading 900' },
+            },
+          ],
+        },
+      },
+      {
+        type: 'box',
+        props: {
+          mt: 16,
+          children: [
+            {
+              type: 'link1',
+              props: { href: 'https://github.com', children: 'Link 500' },
+            },
+          ],
+        },
+      },
+    ]
+  }
+};
+
+/**
+ *  Completely declarative UI made possible by the Evergreen adapter for your data.
+ */
+<EvergreenComponent
+  {...mapToProps(ui)}
+/>
+```
 
 ## Supported design systems
 
@@ -76,6 +126,7 @@ Adapters are pure JavaScript functions. Each function will take an **input** (JS
   props: {
     // Props specific to the <TYPE>.
   },
+  recursive: false, // Optionally apply adapter recursively.
 }
 ```
 

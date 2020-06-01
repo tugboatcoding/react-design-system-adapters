@@ -219,6 +219,7 @@ const mapToMarginProps = (props) => {
 
 /**
  * Returns props that Evergreen understands.
+ *
  * @param {Object} props Props of standard schema.
  */
 const mapToProps = (type, props = {}) => {
@@ -272,7 +273,7 @@ const mapToProps = (type, props = {}) => {
     case 'flex':
       return {
         _type: type,
-        ...mapToFlexProps(props),
+        ...(type === 'box' ? {} : mapToFlexProps(props)),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
         children: props.children,
@@ -292,8 +293,25 @@ const mapToProps = (type, props = {}) => {
   }
 };
 
-export const mapToEvergreenProps = ({ type, props }) => {
-  return mapToProps(type, props);
+/**
+ * Map type and props to props that Evergreen understands.
+ *
+ * @param {String} type       Type of component (h1, body2, link2, etc.)
+ * @param {String} props      Props component
+ * @param {String} recursive  Recursively apply mapping to children.
+ */
+export const mapToEvergreenProps = ({ type, props, recursive = false }) => {
+  if (recursive) {
+    return {
+      ...mapToProps(type, props),
+      children: Array.isArray(props.children)
+        ? props.children.map((child) => mapToEvergreenProps({ ...child, recursive }))
+        : props.children,
+    };
+  }
+  else {
+    return mapToProps(type, props);
+  }
 };
 
 export const EvergreenComponent = ({ _type, ...props }) => {
