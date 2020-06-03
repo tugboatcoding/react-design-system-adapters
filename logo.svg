@@ -1,0 +1,12 @@
+
+<svg width="292px" height="292px" viewBox="0 0 292 292" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+  <desc>Created with Sketch.</desc>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+      <g id="Group" transform="translate(145.939646, 145.939646) rotate(45.000000) translate(-145.939646, -145.939646) translate(53.939646, -49.060354)" fill="#323941" fill-rule="nonzero">
+          <path d="M138,236 L183.632813,236 C178.192737,300.515176 151.315133,335.014429 103,339.49776 L103,390 L81,390 L81,339.531218 C32.4538413,335.188834 5.45384127,300.678428 0,236 L46,236 L46,180 C46,175.581722 49.581722,172 54,172 L58,172 C62.418278,172 66,175.581722 66,180 L66,236 L118,236 L118,180 C118,175.581722 121.581722,172 126,172 L130,172 C134.418278,172 138,175.581722 138,180 L138,236 Z" id="Combined-Shape"></path>
+          <path d="M103,103.49776 L103,154 L81,154 L81,103.531218 C32.4538413,99.1888335 5.45384127,64.6784276 0,1.42108547e-14 L183.632812,1.42108547e-14 C178.192737,64.5151757 151.315133,99.0144291 103,103.49776 Z" id="Combined-Shape" transform="translate(91.816406, 77.000000) rotate(180.000000) translate(-91.816406, -77.000000) "></path>
+      </g>
+  </g>
+</svg>

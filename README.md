@@ -1,8 +1,12 @@
-# react-design-system-adapters
+<div style="display: flex; justify-content: center;"">
+  <img src="https://raw.githubusercontent.com/tugboatcoding/react-design-system-adapters/master/logo.png" width="240px" />
+</div>
+
+# React Design System Adapters
 
 Collection of adapters for React design systems (e.g. [Evergreen](https://evergreen.segment.com/components)) that transform JSON to props that React design systems understand.
 
-## Why
+## Why?
 
 The adapters in this repo serve a specific use case. When you have data to display with a certain design system, you can use `react-design-system-adapters`. It will convert your data into props that the target design system can understand.
 
