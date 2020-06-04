@@ -204,4 +204,6 @@ const MyComponent = () => {
 
 ## Contribute
 
-This repo is still very much in its infancy. It would be great to add [other design systems](https://github.com/alexpate/awesome-design-systems), including Bootstrap, Material, etc. Please fork and make a pull request!
+This repo is still very much in its infancy.
+
+The pacakge needs restructuring so clients can take advantage of tree shaking. It would be great to add [other design systems](https://github.com/alexpate/awesome-design-systems), including Bootstrap, Material, etc. Please fork and make a pull request!
