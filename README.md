@@ -83,6 +83,28 @@ To import:
 import { mapToEvergreenProps } from 'react-design-system-adapters';
 ```
 
+You'll need to transpile the source. To do so, use e.g. [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/):
+
+```js
+module: {
+  ...config.module,
+  rules: [
+    ...config.module.rules,
+    {
+      test: /\.js/,
+      include: /node_modules\/(react-design-system-adapters|react-potion)\/.*/, // For now, both these dependencies need transpiling.
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['@babel/plugin-proposal-object-rest-spread'],
+        },
+      },
+    },
+  ],
+},
+```
+
 To view examples, open Storybook:
 
 ```
