@@ -6,3 +6,4 @@
  */
 
 export { mapToEvergreenProps, EvergreenComponent } from './components/evergreen-ui';
+export { mapToPotionProps, PotionComponent } from './components/react-potion';

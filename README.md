@@ -66,7 +66,8 @@ const ui = {
 
 Design systems for which currently there are adapters:
 
-* [Evergreen](https://evergreen.segment.com/components)
+* [Evergreen](https://evergreen.segment.com/components), [Segment](http://segment.io/)'s design system
+* [React Potion](https://github.com/tugboatcoding/react-potion), a [Notion](https://notion.so)-like design system
 
 ## Usage
 

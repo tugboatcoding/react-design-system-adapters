@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
   "peerDependencies": {
-    "evergreen-ui": ">= 4"
+    "evergreen-ui": ">= 4",
+    "git+https://github.com/tugboatcoding/react-potion.git": ">= 0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -33,7 +34,9 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "babel-loader": "^8.1.0",
-    "evergreen-ui": "^4.27.4"
+    "evergreen-ui": "^4.27.4",
+    "react-potion": "git+https://github.com/tugboatcoding/react-potion.git",
+    "styled-components": "^5.1.1"
   },
   "dependencies": {
     "@storybook/addon-storysource": "^5.3.19"
