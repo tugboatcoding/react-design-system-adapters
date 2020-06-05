@@ -207,6 +207,8 @@ const mapToProps = (type, props = {}) => {
         ...(type === 'box' ? {} : mapToFlexProps(props)),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
+        width: props.width,
+        maxWidth: props.maxWidth,
         minHeight: props.minHeight,
         children: props.children,
       };

@@ -46,4 +46,58 @@ storiesOf('Potion', module)
         </PotionComponent>
       </>
     );
+  })
+  .add('Cover', () => {
+    return (
+      <PotionComponent
+        {...mapToProps({
+          type: 'box',
+          props: {
+            children: [
+              {
+                type: 'cover',
+                props: {
+                  src: 'https://images.unsplash.com/photo-1589802787293-c7009d1fce33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+                }
+              },
+              {
+                type: 'flex',
+                props: {
+                  justifyContent: 'center',
+                  children: [{
+                    type: 'box',
+                    props: {
+                      paddingX: 92,
+                      width: '100%',
+                      maxWidth: '900px',
+                      children: [
+                        {
+                          type: 'pageIcon',
+                          props: {
+                            children: '🍕'
+                          },
+                        },
+                        {
+                          type: 'h1',
+                          props: {
+                            children: 'Pizza!'
+                          },
+                        },
+                        {
+                          type: 'text2',
+                          props: {
+                            children: 'Salami, pepperoni, Hawaaian, all the pizzas.'
+                          },
+                        },
+                      ],
+                    },
+                  }],
+                },
+              },
+            ],
+          },
+          recursive: true,
+        })}
+      />
+    );
   });
