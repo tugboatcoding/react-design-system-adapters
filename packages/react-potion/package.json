@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "React adapters for React Potion.",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +23,7 @@
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
   "dependencies": {
-    "react-potion": ">= 0.0.1"
+    "react-potion": "git+https://github.com/tugboatcoding/react-potion.git"
   },
   "peerDependencies": {
     "react": ">= 16.8",
