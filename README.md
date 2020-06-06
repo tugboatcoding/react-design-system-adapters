@@ -69,7 +69,7 @@ Design systems for which currently there are adapters:
 
 ## Usage
 
-Currently, this repo is only available via a git install.
+Adapters for each design system is an individual `npm` package.
 
 ```bash
 # Install adapters you need. Packages are separate for tree shaking.
