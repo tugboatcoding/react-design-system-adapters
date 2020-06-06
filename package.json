@@ -1,12 +1,14 @@
 {
   "name": "react-design-system-adapters",
-  "version": "0.0.1",
-  "description": "Pick a design system. Get React components themed with the design system.",
-  "main": "src/index.js",
+  "version": "0.0.0",
+  "description": "React adapters for design systems.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "lerna run build",
+    "release:canary": "export PREID=$(openssl rand -hex 12); npx lerna publish --canary --preid $PREID",
+    "release": "npx lerna publish"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,6 @@
     "url": "https://github.com/tugboatcoding/react-design-systems-adapter/issues"
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
-  "peerDependencies": {
-    "evergreen-ui": ">= 4",
-    "git+https://github.com/tugboatcoding/react-potion.git": ">= 0.0.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@storybook/addon-actions": "^5.3.19",
@@ -34,9 +32,9 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "babel-loader": "^8.1.0",
-    "evergreen-ui": "^4.27.4",
-    "react-potion": "git+https://github.com/tugboatcoding/react-potion.git",
-    "styled-components": "^5.1.1"
+    "lerna": "^3.16.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "@storybook/addon-storysource": "^5.3.19"

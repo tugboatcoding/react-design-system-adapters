@@ -1,5 +1,5 @@
-<div style="display: flex; justify-content: center;"">
-  <img src="https://raw.githubusercontent.com/tugboatcoding/react-design-system-adapters/master/logo.png" width="240px" />
+<div style='display: flex; justify-content: center;'>
+  <img src='https://raw.githubusercontent.com/tugboatcoding/react-design-system-adapters/master/logo.png' width='240px' />
 </div>
 
 # React Design System Adapters
@@ -14,73 +14,74 @@ More generally however, it makes the UI more declarative. By expressing your UI 
 
 This example demonstrates how you can use the Evergreen adapter to use Evergreen design system components:
 
-```
+```jsx
 import {
   mapToEvergreenProps as mapToProps,
-  EvergreenComponent
-} from 'react-design-system-adapters';
+  EvergreenComponent,
+} from "@react-design-system-adapters/evergreen-ui";
 
 // UI expressed as JSON.
 const ui = {
   recursive: true,
-  type: 'box',
+  type: "box",
   props: {
     children: [
       {
-        type: 'box',
+        type: "box",
         props: {
           mt: 16,
           children: [
             {
-              type: 'h1',
-              props: { children: 'Heading 900' },
+              type: "h1",
+              props: { children: "Heading 900" },
             },
           ],
         },
       },
       {
-        type: 'box',
+        type: "box",
         props: {
           mt: 16,
           children: [
             {
-              type: 'link1',
-              props: { href: 'https://github.com', children: 'Link 500' },
+              type: "link1",
+              props: { href: "https://github.com", children: "Link 500" },
             },
           ],
         },
       },
-    ]
-  }
+    ],
+  },
 };
 
 /**
  *  Completely declarative UI made possible by the Evergreen adapter for your data.
  */
-<EvergreenComponent
-  {...mapToProps(ui)}
-/>
+<EvergreenComponent {...mapToProps(ui)} />;
 ```
 
 ## Supported design systems
 
 Design systems for which currently there are adapters:
 
-* [Evergreen](https://evergreen.segment.com/components), [Segment](http://segment.io/)'s design system
-* [React Potion](https://github.com/tugboatcoding/react-potion), a [Notion](https://notion.so)-like design system
+- [Evergreen](https://evergreen.segment.com/components), [Segment](http://segment.io/)'s design system
+- [React Potion](https://github.com/tugboatcoding/react-potion), a [Notion](https://notion.so)-like design system
 
 ## Usage
 
 Currently, this repo is only available via a git install.
 
 ```bash
-npm i -S git+https://github.com/tugboatcoding/react-design-system-adapters.git
+# Install adapters you need. Packages are separate for tree shaking.
+
+npm i -S @react-design-system-adapters/evergreen-ui
+npm i -S @react-design-system-adapters/react-potion
 ```
 
 To import:
 
 ```jsx
-import { mapToEvergreenProps } from 'react-design-system-adapters';
+import { mapToEvergreenProps } from "@react-design-system-adapters/evergreen-ui";
 ```
 
 You'll need to transpile the source. To do so, use e.g. [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/):
@@ -122,15 +123,13 @@ npm run storybook
 An example:
 
 ```jsx
-import { Heading } from 'evergreen-ui';
-import { mapToEvergreenProps } from 'react-design-system-adapters';
+import { Heading } from "evergreen-ui";
+import { mapToEvergreenProps } from "@react-design-system-adapters/evergreen-ui";
 
 const MyComponent = () => {
-  const input = { type: 'heading1' };
+  const input = { type: "heading1" };
   const output = mapToEvergreenProps(input);
-  return (
-    <Heading {...output}>Heading 900</Heading>
-  );
+  return <Heading {...output}>Heading 900</Heading>;
 };
 ```
 
@@ -173,15 +172,13 @@ For example, for a link component (layout primitive):
 The **output** from the adapter is a JavaScript object that can be passed directly to the target design system component. For example, to adapt your data to [Evergreen](https://evergreen.segment.com/components)'s `Link`:
 
 ```jsx
-import { Link } from 'evergreen-ui';
-import { mapToEvergreenProps } from 'react-design-system-adapters';
+import { Link } from "evergreen-ui";
+import { mapToEvergreenProps } from "@react-design-system-adapters/evergreen-ui";
 
 const MyComponent = () => {
-  const input = { type: 'link2', props: { href: 'https://github.com' } };
+  const input = { type: "link2", props: { href: "https://github.com" } };
   const output = mapToEvergreenProps(input);
-  return (
-    <Link {...output}>Link 400</Link>
-  );
+  return <Link {...output}>Link 400</Link>;
 };
 ```
 
@@ -190,13 +187,19 @@ const MyComponent = () => {
 `react-design-system-adapters` also offers convenience components that will take the output of props adapters and render the appropriate component. For example:
 
 ```jsx
-import { mapToEvergreenProps, EvergreenComponent } from 'react-design-system-adapters';
+import {
+  mapToEvergreenProps,
+  EvergreenComponent,
+} from "react-design-system-adapters";
 
 const MyComponent = () => {
-  const input = { type: 'link2', props: { href: 'https://github.com', children: 'Link 400' } };
+  const input = {
+    type: "link2",
+    props: { href: "https://github.com", children: "Link 400" },
+  };
   const output = mapToEvergreenProps(input);
   return (
-    // Renders "Link 400".
+    // Renders 'Link 400'.
     <EvergreenComponent {...output} />
   );
 };
@@ -206,4 +209,18 @@ const MyComponent = () => {
 
 This repo is still very much in its infancy.
 
-The pacakge needs restructuring so clients can take advantage of tree shaking. It would be great to add [other design systems](https://github.com/alexpate/awesome-design-systems), including Bootstrap, Material, etc. Please fork and make a pull request!
+It would be great to add [other design systems](https://github.com/alexpate/awesome-design-systems), including Bootstrap, Material, etc. Please fork and make a pull request! Make sure to document your work a [Storybook](http://storybook.js.org/) story. 😊
+
+All packages are managed by [Lerna](https://github.com/lerna/lerna).
+
+## Adding a package
+
+Have a look at existing packages and follow their structure. In your PR, try to keep the `webpack.config.js` and `package.json` config in your new package similar to existing packages.
+
+## Updating a package
+
+Make changes, then from the root of the repo:
+
+```
+npx lerna bootstrap
+```

@@ -16,7 +16,7 @@ import {
   Cover,
   PageIcon,
 } from 'react-potion';
-import { omitNil } from '../../lib/object';
+import { omitNil } from '../lib/object';
 
 const mapToSize = (type) => {
   switch(type) {

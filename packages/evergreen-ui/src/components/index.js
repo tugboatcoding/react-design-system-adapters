@@ -92,7 +92,7 @@ import {
   Strong,
   Checkbox,
 } from 'evergreen-ui';
-import { omitNil } from '../../lib/object';
+import { omitNil } from '../lib/object';
 
 const mapToSize = (type) => {
   switch(type) {

@@ -1,0 +1,45 @@
+{
+  "name": "@react-design-system-adapters/react-potion",
+  "version": "0.0.1",
+  "description": "React adapters for React Potion.",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tugboatcoding/react-design-systems-adapter.git"
+  },
+  "keywords": [
+    "react",
+    "design",
+    "systems"
+  ],
+  "author": "Tugboat Coding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tugboatcoding/react-design-systems-adapter/issues"
+  },
+  "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
+  "dependencies": {
+    "react-potion": ">= 0.0.1"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8",
+    "react-dom": ">= 16.8",
+    "styled-components": ">= 5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "react-potion": "git+https://github.com/tugboatcoding/react-potion.git",
+    "styled-components": "^5.1.1"
+  },
+  "gitHead": "fb210855c7050c9d13478bde6614a9dec1ea0156",
+  "publishConfig": {
+    "access": "public",
+    "scope": "@react-design-system-adapters"
+  }
+}

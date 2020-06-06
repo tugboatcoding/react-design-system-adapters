@@ -5,5 +5,4 @@
  * @see README.md, for more info on the standard set of props.
  */
 
-export { mapToEvergreenProps, EvergreenComponent } from './components/evergreen-ui';
-export { mapToPotionProps, PotionComponent } from './components/react-potion';
+export { mapToPotionProps, PotionComponent } from './components';
