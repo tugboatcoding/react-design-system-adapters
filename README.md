@@ -1,3 +1,5 @@
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+
 <div style='display: flex; justify-content: center;'>
   <img src='https://raw.githubusercontent.com/tugboatcoding/react-design-system-adapters/master/logo.png' width='240px' />
 </div>
