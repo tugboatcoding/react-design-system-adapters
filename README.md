@@ -215,14 +215,6 @@ It would be great to add [other design systems](https://github.com/alexpate/awes
 
 All packages are managed by [Lerna](https://github.com/lerna/lerna).
 
-## Adding a package
+### Adding a package
 
 Have a look at existing packages and follow their structure. In your PR, try to keep the `webpack.config.js` and `package.json` config in your new package similar to existing packages.
-
-## Updating a package
-
-Make changes, then from the root of the repo:
-
-```
-npx lerna bootstrap
-```
