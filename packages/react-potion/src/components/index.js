@@ -18,6 +18,18 @@ import {
 } from 'react-potion';
 import { omitNil } from '../lib/object';
 
+// FIXME: react-potion's Box and Flex theme seems to reset itself to Rebass defaults.
+const theme = {
+  breakpoints: [
+    '414px',
+    '768px',
+    '1024px',
+    '1280px',
+    '1920px',
+  ],
+  space: [],
+};
+
 const mapToSize = (type) => {
   switch(type) {
     case 'h1':
@@ -282,7 +294,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'callout' && <Text {...newProps} />}
       {_type === 'quote' && <Text {...newProps} />}
       {_type === 'code' && <Code {...newProps} />}
-      {_type === 'todoList' && <Box {...newProps} />}
+      {_type === 'todoList' && <Box theme={theme} {...newProps} />}
       {_type === 'toggle' && <Text {...newProps} />}
       {_type === 'link1' && <Link {...newProps} />}
       {_type === 'link2' && <Link {...newProps} />}
@@ -292,16 +304,16 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'pageIcon' && <PageIcon {...newProps} />}
       {_type === 'divider' && <Divider {...newProps} />}
       {_type === 'box' && (
-        <Box {...newProps} />
+        <Box theme={theme} {...newProps} />
       )}
       {_type === 'flex' && (
-        <Flex {...newProps} />
+        <Flex theme={theme} {...newProps} />
       )}
       {_type === 'columnList' && (
-        <Flex {...newProps} />
+        <Flex theme={theme} {...newProps} />
       )}
       {_type === 'column' && (
-        <Box {...newProps} />
+        <Box theme={theme} {...newProps} />
       )}
       {_type === 'orderedList' && (
         <OrderedList {...newProps} />
