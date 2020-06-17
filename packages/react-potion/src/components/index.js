@@ -16,6 +16,7 @@ import {
   Cover,
   PageIcon,
   Callout,
+  Iframe,
 } from 'react-potion';
 import { omitNil } from '../lib/object';
 
@@ -327,6 +328,9 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       )}
       {_type === 'todoListItem' && (
         <Checkbox {...newProps} />
+      )}
+      {['iframe', 'framer', 'tweet', 'gist', 'drive', 'figma', 'loom', 'typeform', 'codepen', 'maps', 'invision'].includes(_type) && (
+        <Iframe {...newProps} />
       )}
     </>
   );
