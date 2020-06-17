@@ -15,6 +15,7 @@ import {
   Divider,
   Cover,
   PageIcon,
+  Callout,
 } from 'react-potion';
 import { omitNil } from '../lib/object';
 
@@ -271,7 +272,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       ? props.children.map((child, idx) => (
         <PotionComponent key={idx} renderer={renderer} {...child} />
       ))
-      : (Array.isArray(props.children) ? props.children.map(renderer) : renderer(props.children)),
+      : renderer(props.children)
   };
 
   return (
@@ -291,7 +292,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'bold1' && <Strong {...newProps} />}
       {_type === 'bold2' && <Strong {...newProps} />}
       {_type === 'bold3' && <Strong {...newProps} />}
-      {_type === 'callout' && <Text {...newProps} />}
+      {_type === 'callout' && <Callout {...newProps} />}
       {_type === 'quote' && <Text {...newProps} />}
       {_type === 'code' && <Code {...newProps} />}
       {_type === 'todoList' && <Box theme={theme} {...newProps} />}

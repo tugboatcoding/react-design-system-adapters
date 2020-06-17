@@ -100,4 +100,48 @@ storiesOf('Potion', module)
         })}
       />
     );
+  })
+  .add('Callout', () => {
+    const mappedProps = mapToProps({
+      type: 'callout',
+      props: {
+        children: [
+          {
+            type: 'flex',
+            props: {
+              alignItems: 'center',
+              children: [
+                {
+                  type: 'box',
+                  props: {
+                    marginRight: '12px',
+                    alignItems: 'center',
+                    children: [
+                      {
+                        type: 'text2',
+                        props: {
+                          children: '\ud83d\udca1'
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  type: 'text2',
+                  props: {
+                    children: 'This page was made with [Notion](http://notion.so)'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      recursive: true,
+    });
+    return (
+      <PotionComponent
+        {...mappedProps}
+      />
+    );
   });
