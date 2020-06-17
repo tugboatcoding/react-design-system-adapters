@@ -8,7 +8,7 @@
     "build-storybook": "build-storybook",
     "build": "lerna run build",
     "release:canary": "export PREID=$(openssl rand -hex 12); npx lerna publish --canary --preid $PREID",
-    "release": "npx lerna publish"
+    "release": "npm run build && npx lerna publish"
   },
   "repository": {
     "type": "git",
