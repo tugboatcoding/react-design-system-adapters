@@ -144,4 +144,25 @@ storiesOf('Potion', module)
         {...mappedProps}
       />
     );
+  })
+  .add('Typeform', () => {
+    const mappedProps = mapToProps({
+      type: 'box',
+      props: {
+        children: [
+          {
+            type: 'typeform',
+            props: {
+              src: 'https://form.typeform.com/to/ABC',
+            },
+          },
+        ],
+      },
+      recursive: true,
+    });
+    return (
+      <PotionComponent
+        {...mappedProps}
+      />
+    );
   });
