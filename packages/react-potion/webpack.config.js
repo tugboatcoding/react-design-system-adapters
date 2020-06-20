@@ -28,6 +28,13 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.ttf$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'file-loader',
+        },
+      },
     ]
   },
   resolve: {
