@@ -1,5 +1,4 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
 import {
   Heading,
   Text,
@@ -21,14 +20,6 @@ import {
   Typeform,
 } from 'react-potion';
 import { omitNil } from '../lib/object';
-import interFont from './Inter-VariableFont.ttf';
-
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'inter';
-    src: url(${interFont}) format('truetype');
-  }
-`;
 
 // FIXME: react-potion's Box and Flex theme seems to reset itself to Rebass defaults.
 const theme = {
@@ -275,13 +266,13 @@ export const mapToPotionProps = ({ type, props, recursive = false }) => {
   }
 };
 
-const Potion = ({ _type, renderer = (v) => v, ...props }) => {
+export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
   // Recursively apply Potion to children.
   const newProps = {
     ...props,
     children: Array.isArray(props.children)
       ? props.children.map((child, idx) => (
-        <Potion key={idx} renderer={renderer} {...child} />
+        <PotionComponent key={idx} renderer={renderer} {...child} />
       ))
       : renderer(props.children)
   };
@@ -348,10 +339,3 @@ const Potion = ({ _type, renderer = (v) => v, ...props }) => {
     </>
   );
 };
-
-export const PotionComponent = (props) => (
-  <>
-    <GlobalStyle />
-    <Potion {...props} />
-  </>
-);
