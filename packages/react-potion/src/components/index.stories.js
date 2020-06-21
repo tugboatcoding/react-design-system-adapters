@@ -28,6 +28,9 @@ storiesOf('Potion', module)
           <PotionComponent {...mapToProps({ type: 'link2', props: { href: 'https://github.com' } })}>Link 400</PotionComponent>
         </PotionComponent>
         <PotionComponent {...mapToProps({ type: 'box', props: { mt: 16 } })}>
+          <PotionComponent {...mapToProps({ type: 'link2', props: { className: 'underline', href: 'https://github.com' } })}>Link 400 (underline)</PotionComponent>
+        </PotionComponent>
+        <PotionComponent {...mapToProps({ type: 'box', props: { mt: 16 } })}>
           <PotionComponent
             {...mapToProps({
               type: 'orderedList',

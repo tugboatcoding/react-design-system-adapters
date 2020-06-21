@@ -176,7 +176,6 @@ const mapToProps = (type, props = {}) => {
     case 'h8':
     case 'h9':
       result = {
-        _type: type,
         size: mapToSize(type),
         children: props.children,
       };
@@ -188,7 +187,6 @@ const mapToProps = (type, props = {}) => {
     case 'bold2':
     case 'bold3':
       result = {
-        _type: type,
         color: mapToTextColor(props),
         size: mapToSize(type),
         children: props.children,
@@ -198,7 +196,6 @@ const mapToProps = (type, props = {}) => {
     case 'link2':
     case 'link3':
       result = {
-        _type: type,
         href: props.href,
         color: mapToLinkColor(props),
         size: mapToSize(type),
@@ -209,7 +206,6 @@ const mapToProps = (type, props = {}) => {
     case 'code2':
     case 'code3':
       result = {
-        _type: type,
         appearance: props.appearance,
         size: mapToSize(type),
         children: props.children,
@@ -218,7 +214,6 @@ const mapToProps = (type, props = {}) => {
     case 'box':
     case 'flex':
       result = {
-        _type: type,
         ...(type === 'box' ? {} : mapToFlexProps(props)),
         ...mapToPaddingProps(props),
         ...mapToMarginProps(props),
@@ -230,19 +225,19 @@ const mapToProps = (type, props = {}) => {
       break;
     case 'todoListItem':
       result = {
-        _type: type,
         disabled: true,
         checked: props.checked,
         label: props.children,
       };
       break;
     default:
-      result = {
-        _type: type,
-        ...props
-      };
+      result = props;
   }
-  return omitNil(result);
+  return omitNil({
+    _type: type,
+    className: props.className,
+    ...result
+  });
 };
 
 /**
