@@ -33,6 +33,7 @@
     "@storybook/react": "^5.3.19",
     "babel-loader": "^8.1.0",
     "lerna": "^3.16.4",
+    "markdown-to-jsx": "^6.11.4",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },

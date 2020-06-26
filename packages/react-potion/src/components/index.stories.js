@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Markdown from 'markdown-to-jsx';
 import {
   mapToPotionProps as mapToProps,
   PotionComponent,
@@ -45,6 +46,17 @@ storiesOf('Potion', module)
                 ],
               },
             })}
+          />
+        </PotionComponent>
+        <PotionComponent {...mapToProps({ type: 'box', props: { mt: 16 } })}>
+          <PotionComponent
+            {...mapToProps({
+              type: 'text2',
+              props: {
+                children: '[This is a link](https://www.google.com)',
+              }
+            })}
+            renderer={(v) => (typeof v === 'string' ? <Markdown>{v}</Markdown> : v)}
           />
         </PotionComponent>
       </>
