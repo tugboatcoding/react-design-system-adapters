@@ -233,6 +233,7 @@ const mapToProps = (type, props = {}) => {
       break;
     case 'collection':
       result = {
+        name: props.name,
         views: props.views,
         cols: props.cols,
         rows: props.rows,
