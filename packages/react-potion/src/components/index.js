@@ -272,14 +272,31 @@ export const mapToPotionProps = ({ type, props, recursive = false }) => {
 
 export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
   // Recursively apply Potion to children.
-  const newProps = {
-    ...props,
-    children: Array.isArray(props.children)
-      ? props.children.map((child, idx) => (
-        <PotionComponent key={idx} renderer={renderer} {...child} />
-      ))
-      : renderer(props.children)
-  };
+  let newProps;
+  if (_type === 'collection') {
+    newProps = {
+      ...props,
+      rows: props.rows.map((row) => row.map((cell) => {
+        if (cell.type === 'text') {
+          return {
+            ...cell,
+            value: renderer(cell.value),
+          };
+        }
+        return cell;
+      })),
+    };
+  }
+  else {
+    newProps = {
+      ...props,
+      children: Array.isArray(props.children)
+        ? props.children.map((child, idx) => (
+          <PotionComponent key={idx} renderer={renderer} {...child} />
+        ))
+        : renderer(props.children)
+    };
+  }
 
   return (
     <>
