@@ -1,23 +1,24 @@
 import React from 'react';
 import {
-  Heading,
-  Text,
-  Strong,
-  Code,
-  Link,
   Box,
-  Flex,
-  OrderedList,
-  UnorderedList,
-  ListItem,
-  Checkbox,
-  Image,
-  Divider,
-  Cover,
-  PageIcon,
   Callout,
+  Checkbox,
+  Code,
+  Collection,
+  Cover,
+  Divider,
+  Flex,
+  Heading,
   Iframe,
+  Image,
+  Link,
+  ListItem,
+  OrderedList,
+  PageIcon,
+  Strong,
+  Text,
   Typeform,
+  UnorderedList,
 } from 'react-potion';
 import { omitNil } from '../lib/object';
 
@@ -230,6 +231,13 @@ const mapToProps = (type, props = {}) => {
         label: props.children,
       };
       break;
+    case 'collection':
+      result = {
+        views: props.views,
+        cols: props.cols,
+        rows: props.rows,
+      };
+      break;
     default:
       result = props;
   }
@@ -301,6 +309,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'cover' && <Cover {...newProps} />}
       {_type === 'pageIcon' && <PageIcon {...newProps} />}
       {_type === 'divider' && <Divider {...newProps} />}
+      {_type === 'collection' && <Collection {...newProps} />}
       {_type === 'box' && (
         <Box theme={theme} {...newProps} />
       )}
