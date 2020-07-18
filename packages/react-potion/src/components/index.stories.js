@@ -996,6 +996,7 @@ storiesOf('Potion', module)
     });
     return (
       <PotionComponent
+        renderer={(v) => (typeof v === 'string' ? <Markdown>{v}</Markdown> : v)}
         {...mappedProps}
       />
     );
