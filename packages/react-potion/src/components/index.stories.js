@@ -1000,4 +1000,96 @@ storiesOf('Potion', module)
         {...mappedProps}
       />
     );
+  })
+  .add('Collection', () => {
+    const mappedProps = mapToProps({
+      "type": "box",
+      "props": {
+        "marginBottom": "72px",
+        "children": [
+          {
+            "type": "box",
+            "props": {
+              "marginBottom": "32px"
+            }
+          },
+          {
+            "type": "flex",
+            "props": {
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "box",
+                  "props": {
+                    "width": "100%",
+                    "maxWidth": "900px",
+                    "paddingX": [
+                      "24px",
+                      "24px",
+                      "24px",
+                      "92px"
+                    ],
+                    "children": [
+                      {
+                        "type": "collection",
+                        "props": {
+                          "name": "Hola mundo!",
+                          "views": [
+                            {
+                              "id": "5355ee5b-f904-4a3f-b438-2d8b4cfddaa1",
+                              "name": "",
+                              "type": "list"
+                            }
+                          ],
+                          "cols": [
+                            {
+                              "value": "Score /5",
+                              "type": "select"
+                            },
+                            {
+                              "value": "Name",
+                              "type": "title"
+                            }
+                          ],
+                          "rows": [
+                            [
+                              {
+                                "value": "⭐️⭐️⭐️⭐️",
+                                "type": "select"
+                              },
+                              {
+                                "value": "Hello world!",
+                                "type": "title"
+                              }
+                            ],
+                            [
+                              {
+                                "value": "⭐️⭐️⭐️⭐️",
+                                "type": "select"
+                              },
+                              {
+                                "value": "Hallo welt!",
+                                "type": "title"
+                              }
+                            ],
+                          ],
+                          "children": []
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "recursive": true
+    });
+    return (
+      <PotionComponent
+        renderer={(v) => (typeof v === 'string' ? <Markdown>{v}</Markdown> : v)}
+        {...mappedProps}
+      />
+    );
   });
