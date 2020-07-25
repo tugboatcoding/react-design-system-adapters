@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
   "dependencies": {
-    "react-potion": "0.0.30"
+    "react-potion": "0.0.31"
   },
   "peerDependencies": {
     "react": ">= 16.8",
@@ -35,7 +35,7 @@
     "babel-loader": "^8.1.0",
     "styled-components": "^5.1.1"
   },
-  "gitHead": "fb210855c7050c9d13478bde6614a9dec1ea0156",
+  "gitHead": "d57affac704de511e6925612831a53a1506c2fc8",
   "publishConfig": {
     "access": "public",
     "scope": "@react-design-system-adapters"
