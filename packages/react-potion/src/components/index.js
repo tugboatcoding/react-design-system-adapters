@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Callout,
+  Caption,
   Checkbox,
   Code,
   Collection,
@@ -328,6 +329,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'pageIcon' && <PageIcon {...newProps} />}
       {_type === 'divider' && <Divider {...newProps} />}
       {_type === 'collection' && <Collection {...newProps} />}
+      {_type === 'caption' && <Caption {...newProps} />}
       {_type === 'box' && (
         <Box theme={theme} {...newProps} />
       )}

@@ -105,6 +105,37 @@ storiesOf('Potion', module)
                             children: 'Salami, pepperoni, Hawaaian, all the pizzas.'
                           },
                         },
+                        {
+                          'type': 'flex',
+                          'props': {
+                            'alignItems': 'center',
+                            'minHeight': '30px',
+                            'marginTop': '8px',
+                            'marginBottom': '8px',
+                            'children': [{
+                              'type': 'image',
+                              'props': {
+                                'width': '1920px',
+                                'src': 'https://images.unsplash.com/photo-1589802787293-c7009d1fce33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                                'sizes': '(max-width: 414px) 400px, 1500px',
+                                'maxWidth': '100%'
+                              }
+                            }]
+                          }
+                        },
+                        {
+                          'type': 'flex',
+                          'props': {
+                            'alignItems': 'center',
+                            'minHeight': '30px',
+                            'marginTop': '2px',
+                            'marginBottom': '2px',
+                            'children': [{
+                              'type': 'caption',
+                              'props': {'children': 'Pageably - import pages into your site'}
+                            }]
+                          }
+                        }
                       ],
                     },
                   }],
