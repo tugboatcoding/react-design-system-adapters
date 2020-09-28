@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/tugboatcoding/react-design-systems-adapter#readme",
   "dependencies": {
-    "react-potion": "0.0.36"
+    "react-potion": "0.0.38"
   },
   "peerDependencies": {
     "react": ">= 16.8",
