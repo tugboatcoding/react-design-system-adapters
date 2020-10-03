@@ -213,6 +213,27 @@ storiesOf('Potion', module)
       />
     );
   })
+  .add('Quote', () => {
+    const mappedProps = mapToProps({
+      type: 'box',
+      props: {
+        children: [
+          {
+            type: 'quote',
+            props: {
+              children: 'Lorem ipsum',
+            },
+          },
+        ],
+      },
+      recursive: true,
+    });
+    return (
+      <PotionComponent
+        {...mappedProps}
+      />
+    );
+  })
   .add('Collection', () => {
     const mappedProps = mapToProps({
       recursive: true,

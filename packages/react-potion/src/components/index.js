@@ -16,6 +16,7 @@ import {
   ListItem,
   OrderedList,
   PageIcon,
+  Quote,
   Strong,
   Text,
   Typeform,
@@ -317,7 +318,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'bold2' && <Strong {...newProps} />}
       {_type === 'bold3' && <Strong {...newProps} />}
       {_type === 'callout' && <Callout {...newProps} />}
-      {_type === 'quote' && <Text {...newProps} />}
+      {_type === 'quote' && <Quote {...newProps} />}
       {_type === 'code' && <Code {...newProps} />}
       {_type === 'todoList' && <Box theme={theme} {...newProps} />}
       {_type === 'toggle' && <Text {...newProps} />}
