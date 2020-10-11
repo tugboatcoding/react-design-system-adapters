@@ -231,6 +231,7 @@ const mapToProps = (type, props = {}) => {
         disabled: true,
         checked: props.checked,
         label: props.label,
+        children: props.children,
       };
       break;
     case 'collection':
