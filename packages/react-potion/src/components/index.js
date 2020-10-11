@@ -356,7 +356,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'todoListItem' && (
         <Checkbox {...newProps} />
       )}
-      {['framer', 'iframe', 'tweet', 'gist', 'drive', 'figma', 'loom', 'codepen', 'maps', 'invision'].includes(_type) && (
+      {['framer', 'iframe', 'tweet', 'gist', 'drive', 'figma', 'loom', 'codepen', 'maps', 'invision', 'video'].includes(_type) && (
         <Iframe {...newProps} />
       )}
       {['typeform'].includes(_type) && (
