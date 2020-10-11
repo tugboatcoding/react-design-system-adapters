@@ -19,6 +19,7 @@ import {
   Quote,
   Strong,
   Text,
+  Toggle,
   Typeform,
   UnorderedList,
 } from 'react-potion';
@@ -322,7 +323,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
       {_type === 'quote' && <Quote {...newProps} />}
       {_type === 'code' && <Code {...newProps} />}
       {_type === 'todoList' && <Box theme={theme} {...newProps} />}
-      {_type === 'toggle' && <Text {...newProps} />}
+      {_type === 'toggle' && <Toggle {...newProps} />}
       {_type === 'link1' && <Link {...newProps} />}
       {_type === 'link2' && <Link {...newProps} />}
       {_type === 'link3' && <Link {...newProps} />}
