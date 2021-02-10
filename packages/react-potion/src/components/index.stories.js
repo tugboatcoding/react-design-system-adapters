@@ -213,6 +213,29 @@ storiesOf('Potion', module)
       />
     );
   })
+  .add('Embed', () => {
+    const mappedProps = mapToProps({
+      type: 'box',
+      props: {
+        children: [
+          {
+            type: 'embed',
+            props: {
+              src: 'https://mlb.com',
+              width: '1008px',
+              height: '903px',
+            },
+          },
+        ],
+      },
+      recursive: true,
+    });
+    return (
+      <PotionComponent
+        {...mappedProps}
+      />
+    );
+  })
   .add('Quote', () => {
     const mappedProps = mapToProps({
       type: 'box',
