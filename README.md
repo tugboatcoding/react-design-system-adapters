@@ -221,6 +221,8 @@ Have a look at existing packages and follow their structure. In your PR, try to 
 
 ## Release
 
+Commit and then:
+
 ```
 npx lerna bootstrap
 npm run release
