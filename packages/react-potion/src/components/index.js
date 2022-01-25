@@ -243,6 +243,12 @@ const mapToProps = (type, props = {}) => {
         rows: props.rows,
       };
       break;
+    case 'toggle':
+      result = {
+        label: props.label,
+        children: props.children,
+      };
+      break;
     default:
       result = props;
   }
