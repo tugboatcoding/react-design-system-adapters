@@ -1,6 +1,6 @@
 {
   "name": "@react-design-system-adapters/react-potion",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "React adapters for React Potion.",
   "main": "dist/index.js",
   "scripts": {
