@@ -299,7 +299,7 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
   } else if (_type === 'toggle') {
     newProps = {
       ...props,
-      label: <PotionComponent renderer={renderer} {...mapToProps(props.label)} />,
+      label: <PotionComponent renderer={renderer} {...mapToProps(_type, props.label)} />,
       children: Array.isArray(props.children)
         ? props.children.map((child, idx) => (
           <PotionComponent key={idx} renderer={renderer} {...child} />
