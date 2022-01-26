@@ -59,6 +59,33 @@ storiesOf('Potion', module)
             renderer={(v) => (typeof v === 'string' ? <Markdown>{v}</Markdown> : v)}
           />
         </PotionComponent>
+        <PotionComponent {...mapToProps({ type: 'box', props: { mt: 16 } })}>
+          <PotionComponent {...mapToProps({
+              type: 'toggle',
+              props: {
+                children: [
+                  {
+                    type: 'box',
+                    props: {
+                      className: 'underline',
+                      children: '__ICED:__ Framework to organise thoughts for products that are infrequently used'
+                    }
+                  },
+                ],
+                label: {
+                  type: 'box',
+                  props: {
+                    className: 'underline',
+                    children: '__ICED:__ ...'
+                  }
+                },
+              },
+              recursive: true,
+            })}
+            renderer={(v) => (typeof v === 'string' ? <Markdown>{v}</Markdown> : v)}
+          >
+          </PotionComponent>
+        </PotionComponent>
       </>
     );
   })
