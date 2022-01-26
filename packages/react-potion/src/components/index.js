@@ -296,6 +296,16 @@ export const PotionComponent = ({ _type, renderer = (v) => v, ...props }) => {
         return cell;
       })),
     };
+  } else if (_type === 'toggle') {
+    newProps = {
+      ...props,
+      label: <PotionComponent renderer={renderer} {...props.label} />,
+      children: Array.isArray(props.children)
+        ? props.children.map((child, idx) => (
+          <PotionComponent key={idx} renderer={renderer} {...child} />
+        ))
+        : renderer(props.children)
+    };
   }
   else {
     newProps = {
