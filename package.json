@@ -30,7 +30,7 @@
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@storybook/react": "^6.5.13",
     "babel-loader": "^8.1.0",
     "lerna": "^3.16.4",
     "markdown-to-jsx": "^6.11.4",
